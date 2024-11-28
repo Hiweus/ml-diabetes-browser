@@ -1,4 +1,7 @@
-import ML from 'ml-naivebayes'
+import MLN from 'ml-naivebayes'
+import MLR from 'ml-random-forest';
+import MLT from 'ml-cart'
+
 import fs from 'fs'
 import CSV from 'papaparse'
 
@@ -65,7 +68,7 @@ function calculateRecall(yTrue, yPred) {
 }
 
 
-async function main(name) {
+async function main(name, model) {
   const csvData = fs.readFileSync("./dataset-full.csv", "utf-8")
   const { data: rawData } = CSV.parse(csvData, { header: true })
   const data = rawData.map((row) => {
@@ -95,7 +98,6 @@ async function main(name) {
 
   const { trainX, testX, trainY, testY } = train_test_split(X, y, 0.3, 42)
 
-  const model = new ML.GaussianNB()
   model.train(trainX, trainY)
 
   const yPred = model.predict(testX)
@@ -111,6 +113,12 @@ async function main(name) {
 
 
 Promise.all([
-  main('naive'),
-
+  main('naive', new MLN.GaussianNB()),
+  main('random', new MLR.RandomForestClassifier()),
+  main('tree', new MLT.DecisionTreeClassifier({
+    gainFunction: 'gini',
+    minNumSamples: 2
+  }))
 ])
+.catch(console.error)
+.then(() => console.log('Done!'))

@@ -12,7 +12,9 @@
   "description": "",
   "dependencies": {
     "danfojs-node": "^1.1.2",
+    "ml-cart": "^2.1.1",
     "ml-naivebayes": "^4.0.0",
+    "ml-random-forest": "^2.1.0",
     "papaparse": "^5.4.1",
     "scikitjs-node": "^0.0.7",
     "sklearn": "^1.0.0"

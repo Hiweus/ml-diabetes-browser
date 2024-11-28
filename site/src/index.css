@@ -23,3 +23,15 @@
   border: none;
   outline: none;
 }
+
+.danger {
+  color: red;
+}
+
+select, input {
+  margin: auto;
+  width: 80%;
+  align-self: flex-end;
+  padding: 5px 0;
+  text-align: center;
+}
