@@ -23,7 +23,7 @@ jobs:
       - name: Build project
         run: |
           cd site
-          npm run build
+          PUBLIC_URL=/ml-diabetes-browser/ npm run build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
