@@ -83,14 +83,14 @@ function App() {
               <label htmlFor={`field-${index}`}>{column}</label>
               {
                 column === 'age' && (
-                  <input type="number" id={`field-${index}`} onChange={processarResposta} defaultValue={0} />
+                  <input type="number" id={`field-${index}`} onChange={processarResposta} defaultValue={67} />
                 )
               }
               {
                 column === 'gender' && (
                   <select id={`field-${index}`} onChange={processarResposta}>
-                    <option value="1">Masculino</option>
-                    <option value="2">Feminino</option>
+                    <option value="0">Masculino</option>
+                    <option value="1">Feminino</option>
                   </select>
                 )
               }

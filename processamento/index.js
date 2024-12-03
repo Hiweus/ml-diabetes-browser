@@ -80,11 +80,7 @@ async function main(name, model) {
     return cleanedRow
   }).filter((row) => Object.keys(row).length > 0)
 
-  data.forEach((row) => {
-    row["gender"] = row["gender"] === "Male" ? 1 : 2
-  })
-
-  const positiveValues = ["yes", "positive", "Yes", "Positive"]
+  const positiveValues = ["yes", "positive", "Yes", "Positive", "Female", "female"]
   const allColumns = [...sortedHeadersRelevance, "class"]
 
   allColumns.forEach((column) => {
